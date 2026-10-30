@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="background-glow"></div>
+
+    <div class="weather-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Live forecast</p>
+          <h1 id="appName">Weather App</h1>
+        </div>
+
+        <button id="customTab" class="custom-tab" aria-label="Open custom panel">
+          custom
+        </button>
+      </header>
+
+      <section class="search-panel">
+        <form id="searchForm" class="search-form">
+          <label class="sr-only" for="placeInput">Search for a place</label>
+          <input
+            id="placeInput"
+            type="text"
+            value="Luton"
+            placeholder="Search England towns or cities..."
+            autocomplete="off"
+          />
+          <button type="submit">Check weather</button>
+        </form>
+
+        <div id="quickPlaces" class="quick-places" aria-label="Popular places"></div>
+      </section>
+
+      <main class="weather-card">
+        <div class="hero">
+          <div>
+            <p id="locationLabel" class="location-label">Luton, England</p>
+            <h2 id="currentTemp" class="current-temp">--°C</h2>
+          </div>
+
+          <div class="weather-status-wrap">
+            <div id="weatherIcon" class="weather-icon" aria-label="Weather icon">☀️</div>
+            <p id="weatherSummary" class="weather-summary">Loading…</p>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-box">
+            <span>Feels like</span>
+            <strong id="feelsLike">--°C</strong>
+          </div>
+          <div class="stat-box">
+            <span>Wind</span>
+            <strong id="windSpeed">-- km/h</strong>
+          </div>
+          <div class="stat-box">
+            <span>Rain</span>
+            <strong id="rainChance">--%</strong>
+          </div>
+          <div class="stat-box">
+            <span>Humidity</span>
+            <strong id="humidity">--%</strong>
+          </div>
+        </div>
+
+        <section class="forecast-panel">
+          <div class="panel-header">
+            <h3>Next 6 days</h3>
+          </div>
+          <div id="forecastList" class="forecast-list"></div>
+        </section>
+      </main>
+    </div>
+
+    <aside id="customPanel" class="custom-panel" aria-live="polite">
+      <div class="custom-panel-header">
+        <span>Custom</span>
+        <button id="closePanel" class="close-panel" aria-label="Close custom panel">×</button>
+      </div>
+
+      <label class="custom-label" for="customInput">Secret code</label>
+      <input id="customInput" type="text" placeholder="Type: Jake missenden" />
+      <p class="custom-tip">Type “Jake missenden” to unlock Arthur's weather and world-wide search.</p>
+
+      <div id="globalSearchWrap" class="global-search-wrap hidden">
+        <label class="custom-label" for="countryInput">Country or state</label>
+        <input id="countryInput" type="text" placeholder="Try: California, Canada, Lagos..." />
+      </div>
+    </aside>
+
+    <script src="script.js"></script>
+  </body>
+</html>
